@@ -22,7 +22,6 @@ const Home = () => {
         </video>
       </div>
 
-
       <div className={styles.break}></div>
 
       <div className={styles.textImageContainer}>
