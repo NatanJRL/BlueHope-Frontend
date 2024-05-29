@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Header />
 
-      
+
 
       <div className={styles.videoContainer}>
 
