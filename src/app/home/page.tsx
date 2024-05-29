@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
 import styles from './styles.module.css'
+import Image from 'next/image'
+
 
 const Home = () => {
   return (
@@ -23,6 +25,20 @@ const Home = () => {
 
       <div className={styles.break}></div>
 
+      <div className={styles.textImageContainer}>
+        <h3>
+          Lorem ipsum dolorlorum fugit fugiat quidem, alias praesentium laudantium commodi, dolore obcaecati natus excepturi consequuntur doloremque, quia porro repellat. Provident odit modi commodi a.
+        </h3>
+
+        <Image className={styles.fishImage}
+              src={"/plastic_fish.jpg"}
+              width={10000}
+              height={10000}
+              alt='Imagem'
+        ></Image>
+      </div>
+
+      <div className={styles.break}></div>
 
     </>
   )
