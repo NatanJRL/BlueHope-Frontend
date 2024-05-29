@@ -13,14 +13,16 @@ const Header = () => {
                 <header className={styles.header}>
 
                     <Link href={"*"}>
-                        <Image src={"/BlueHope_Logo.png"}
+                        <Image src={"/Blue_Hope_Logo.png"}
                             width={100}
                             height={100}
                             alt='Logo da BlueHope'
                         ></Image>
                     </Link>
 
-                    <nav>
+                    
+
+                    <nav >
                         <ul className={styles.linkList}>
                             <li>
                                 <Link
