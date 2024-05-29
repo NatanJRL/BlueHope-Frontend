@@ -1,0 +1,48 @@
+.primary {
+    background-color: white;
+    color: #023859;
+    width: 30vw;
+    max-width: 250px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: 0.1s ease-in-out;
+}
+
+.primary:hover {
+    background-color: rgb(145, 145, 145);
+    color: #103349;
+    transition: 0.1s ease-in-out;
+}
+
+.secondary {
+    background-color: #5271FF;
+    color: white;
+    width: 24vw;
+    max-width: 250px;
+    padding: 6px 10px;
+    border-radius: 4px;
+
+    cursor: pointer;
+    border: none;
+    transition: 0.1s ease-in-out;
+}
+
+.secondary:hover {
+    background-color: #283156;
+    color: white;
+    transition: 0.1s ease-in-out;
+}
+
+
+@media(min-width: 768px){
+    .primary {
+        font-size: large;
+    }
+    
+    
+    .secondary {
+        font-size: large;
+    }
+}
