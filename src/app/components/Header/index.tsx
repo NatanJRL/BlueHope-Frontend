@@ -12,32 +12,60 @@ const Header = () => {
             <div className={styles.headerContainer}>
                 <header className={styles.header}>
 
+
                     <Link href={"*"}>
-                        <Image src={"/Blue_Hope_Logo.png"}
-                            width={100}
-                            height={100}
+                        <Image src={"/BlueHope-Logo.svg"}
+                            width={60}
+                            height={60}
+                            id='logo'
+                            className={styles.logo}
                             alt='Logo da BlueHope'
-                        ></Image>
+                        />
                     </Link>
 
-                    
+                    <div >
+                        <div  className={styles.menuLine}></div>
+                        <div  className={styles.menuLine}></div>
+                        <div  className={styles.menuLine}></div>
+                    </div>
 
-                    <nav >
+
+                    {/* <nav className={styles.lateralListContainer}>
+                        <ul className={styles.laterallinkList}>
+                            <li>
+                                <Link
+                                    className={styles.laterallink}
+                                    href={"*"}>Como usar</Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className={styles.link}
+                                    href={"*"}>Vídeo</Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className={styles.link}
+                                    href={"*"}>Sobre</Link>
+                            </li>
+                        </ul>
+                    </nav> */}
+
+                    <nav className={styles.listContainer}>
                         <ul className={styles.linkList}>
                             <li>
                                 <Link
                                     className={styles.link}
-                                    href={"&"}>Como usar</Link>
+                                    href={"*"}>Como usar</Link>
                             </li>
                             <li>
                                 <Link
                                     className={styles.link}
-                                    href={"&"}>Vídeo</Link>
+                                    href={"*"}>Vídeo</Link>
                             </li>
                             <li>
                                 <Link
                                     className={styles.link}
-                                    href={"&"}>Sobre</Link>
+                                    href={"*"}>Sobre</Link>
                             </li>
                         </ul>
                     </nav>

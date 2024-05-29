@@ -4,34 +4,52 @@
     z-index: 1000;
 }
 
-.logo {
-    width: 100px;
-    height: 200px;
-}
 
 .header {
     background-color: transparent;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 1rem;
     align-items: center;
 }
 
-.link {
-    color: white;
-    text-decoration: none;
-    font-size: larger;
+.listContainer{
+    display: none;
 }
 
-.link:hover {
-    color: rgb(20, 19, 19);
-    transition: all 0.1s ease-in;
+.menuLine{
+    background-color: #ffffff;
+    width: 40px;
+    height: 5px;
+    margin: 8px;
 }
 
-
-.linkList {
-    display: flex;
-    margin-right: 2rem;
-    width: 60vw;
-    justify-content: space-between;
-    list-style: none;
+@media(min-width: 768px) {
+    .listContainer{
+        display: block;
+    }
+    .logo {
+        display: block;
+        width: 6rem;
+        height: 100px;
+    }
+    .link {
+        color: white;
+        text-decoration: none;
+        font-size: larger;
+    }
+    
+    .link:hover {
+        color: rgb(20, 19, 19);
+        transition: all 0.1s ease-in;
+    }
+    
+    
+    .linkList {
+        display: flex;
+        margin-right: 2rem;
+        width: 60vw;
+        justify-content: space-between;
+        list-style: none;
+    }
 }

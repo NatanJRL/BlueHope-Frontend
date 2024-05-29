@@ -15,14 +15,12 @@
 .titleContainer{
     position: absolute;
     z-index: 1000;
-
-
 }
 
 .titleContainer h1{
     text-align: center;
     color: white;
-    font-size: 4rem;
+    font-size: 4vw;
     font-family: Cinzel;
     font-weight: 200;
 }
@@ -71,3 +69,4 @@
 
     
 }
+
