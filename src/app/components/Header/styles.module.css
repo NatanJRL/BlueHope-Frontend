@@ -1,7 +1,7 @@
 .headerContainer {
     width: 100%;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
 }
 
 
@@ -24,7 +24,12 @@
     margin: 8px;
 }
 
+
 @media(min-width: 768px) {
+    .header {
+        justify-content: space-around;
+    }
+
     .listContainer{
         display: block;
     }
@@ -37,11 +42,16 @@
         color: white;
         text-decoration: none;
         font-size: larger;
+        display: inline-block;
+        transition: all 0.2s ease-in;
+    }
+    .mobileMenu{
+        display: none;
     }
     
     .link:hover {
-        color: rgb(20, 19, 19);
-        transition: all 0.1s ease-in;
+        list-style: square;
+        transform: scale(1.2);
     }
     
     
@@ -52,4 +62,6 @@
         justify-content: space-between;
         list-style: none;
     }
+
+    
 }

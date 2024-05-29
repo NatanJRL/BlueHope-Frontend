@@ -9,7 +9,7 @@
     position: relative;
 }   
 .video{
-    opacity: 0.40;
+    opacity: 0.40;;
 }
 
 .titleContainer{
@@ -39,14 +39,14 @@
     justify-content: space-between;
     padding: 10vw;
     background-color: #96C6D9;
-    
-    
+    color: white;
 }
 
 .textImageContainer h3{
     width: 50%;
     margin-bottom: 3rem;
-    text-align: center;
+    text-align: center; 
+    font-size: larger;
 }
 
 .fishImage{

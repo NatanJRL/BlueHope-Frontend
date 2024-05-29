@@ -11,7 +11,7 @@ const Header = () => {
         <>
             <div className={styles.headerContainer}>
                 <header className={styles.header}>
-
+                
 
                     <Link href={"*"}>
                         <Image src={"/BlueHope-Logo.svg"}
@@ -23,7 +23,7 @@ const Header = () => {
                         />
                     </Link>
 
-                    <div >
+                    <div className={styles.mobileMenu}>
                         <div  className={styles.menuLine}></div>
                         <div  className={styles.menuLine}></div>
                         <div  className={styles.menuLine}></div>
@@ -74,7 +74,6 @@ const Header = () => {
             </div>
 
         </>
-
     )
 }
 

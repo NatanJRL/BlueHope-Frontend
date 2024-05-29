@@ -14,7 +14,7 @@ const Home = () => {
       <div className={styles.videoContainer}>
 
         <div className={styles.titleContainer}>
-          <h1>NOS AJUDE A SALVAR O MUNDO</h1>
+          <h1>A ESPERANÇA É AZUL OCEANO</h1>
         </div>
 
         <video className={styles.video} width="100%" preload='true' autoPlay loop muted playsInline>
