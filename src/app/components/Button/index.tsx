@@ -1,17 +1,18 @@
+'use client'
 import React from 'react'
+import styles from './styles.module.css'
 
-interface ButtonProps {
+type ButtonProps = {
     onClick: () => void;
     variant?: 'primary' | 'secondary';
     text?: string;
     id?: string;
-  
   }
 
-  const Button: React.FC<ButtonProps> = ({ onClick, variant = 'primary', text, id}) => {
+  const Button: React.FC<ButtonProps> = ({ onClick, variant, text}) => {
 
     return (
-      <button id={id} onClick={onClick} className={`button  ${variant}`}>
+      <button onClick= {onClick} id='button' className={variant === "secondary" ?  styles.secondary : styles.primary }>
         {text}
       </button >
     );
