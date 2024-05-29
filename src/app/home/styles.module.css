@@ -27,6 +27,46 @@
 
 .break{
     background-color: #023859;
+    width: 100%;
+    height: 15vh;
+}
+
+.textImageContainer{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10vw;
+    background-color: #96C6D9;
+    
+    
+}
+
+.textImageContainer h3{
+    width: 50%;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.fishImage{
+    border-radius: 20px;
+    width: 50vw;
+    height: 50vw;
+}
+
+@media (min-width: 600px) {
+
+    .textImageContainer{
+        flex-direction: row;
+    }
+
+    .fishImage{
+        width: 30vw;
+        height: 30vw;
+    }
+
+
     
 }
 
