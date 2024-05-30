@@ -10,7 +10,7 @@ const Login = () => {
     
   return (
     <main className={styles.wholeContainer}>
-        <Link href={"*"}>
+        <Link href={"/home"}>
             <Image src={"/BlueHope-Logo.svg"}
                 width={100}
                 height={100}

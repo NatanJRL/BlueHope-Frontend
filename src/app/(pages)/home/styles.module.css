@@ -52,20 +52,26 @@
     color: white;
 }
 
-.textImageContainer h3{
-    width: 50%;
-    margin-bottom: 3rem;
-    text-align: center; 
-    font-size: larger;
+
+.introduceText{
+    color: #023859;
+    align-self: center;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
-.fishImage{
-    border-radius: 20px;
-    width: 50vw;
-    height: 50vw;
+.cardGroup{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
 
     .textImageContainer{
         flex-direction: row;
@@ -81,6 +87,13 @@
         height: 30vw;
     }
 
+    .cardGroup{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5rem;
+    }
 
 
     

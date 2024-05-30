@@ -2,9 +2,9 @@
 import React from 'react'
 import Header from '../../components/Header'
 import styles from './styles.module.css'
-import Image from 'next/image'
 import Button from '@/app/components/Button'
 import {useRouter } from 'next/navigation'
+import Card from '@/app/components/Card'
 
 const Home = () => {
 
@@ -26,7 +26,7 @@ const Home = () => {
             text='Criar conta'
           ></Button>
            <Button
-            onClick={() => {router.push("/") }}
+            onClick={() => {router.push("/login") }}
             text='Entrar'
             variant='secondary'
           ></Button>
@@ -41,17 +41,24 @@ const Home = () => {
 
       <div className={styles.break}></div>
 
-      <div className={styles.textImageContainer}>
-        <h3>
-          Lorem ipsum dolorlorum fugit fugiat quidem, alias praesentium laudantium commodi, dolore obcaecati natus excepturi consequuntur doloremque, quia porro repellat. Provident odit modi commodi a.
-        </h3>
 
-        <Image className={styles.fishImage}
-          src={"/plastic_fish.jpg"}
-          width={10000}
-          height={10000}
-          alt='Imagem'
-        ></Image>
+      <h4 className={styles.introduceText}>Com a IA da BlueHope você pode</h4>
+
+      <div className={styles.cardGroup}>
+        <Card
+          path='/pin_icon.svg'
+          text='Mapear o Despejo de Plástico'
+        />
+
+        <Card
+          path='/lens_icon.svg'
+          text='Identificar Lixo Marinho em Imagens'
+        />
+
+        <Card
+          path='/pin_icon.svg'
+          text='Mapear Despejo de Plástico'
+        />
       </div>
 
       <div className={styles.break}></div>
