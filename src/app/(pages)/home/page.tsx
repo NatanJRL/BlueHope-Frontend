@@ -4,8 +4,12 @@ import Header from '../../components/Header'
 import styles from './styles.module.css'
 import Image from 'next/image'
 import Button from '@/app/components/Button'
+import {useRouter } from 'next/navigation'
 
 const Home = () => {
+
+  const router = useRouter()
+
   return (
     <>
       <Header />
@@ -22,7 +26,7 @@ const Home = () => {
             text='Criar conta'
           ></Button>
            <Button
-            onClick={() => { console.log("FUNCIONOU") }}
+            onClick={() => {router.push("/") }}
             text='Entrar'
             variant='secondary'
           ></Button>
