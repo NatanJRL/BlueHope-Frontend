@@ -1,6 +1,6 @@
 .primary {
     background-color: white;
-    color: #023859;
+    color: var(--cor-azul-escuro);
     width: 30vw;
     max-width: 250px;
     padding: 10px 20px;
@@ -17,7 +17,7 @@
 }
 
 .secondary {
-    background-color: #5271FF;
+    background-color: var(--cor-logo);
     color: white;
     width: 24vw;
     max-width: 250px;

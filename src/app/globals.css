@@ -5,6 +5,19 @@
   font-family: "Sora", sans-serif;
   font-weight: 550;
 }
+
+
+:root {
+  --cor-azul-escuro: #023859;
+  --cor-azul-médio: #025373;
+  --cor-logo: #5271FF;
+  --cor-azul-suave: #50A0BF;
+  --cor-azul-palido: #96C6D9;
+  --cor-azul-celeste: #D8EBF2;
+}
+
 body{
   background-color: white;
 }
+
+

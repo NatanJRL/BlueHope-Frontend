@@ -4,14 +4,14 @@
 
 .headerContainer {
     width: 100%;
-    background-color:#023859;
+    background-color:var(--cor-azul-escuro);
     height: 10vh;
     z-index: 1;
 }
 
 
 .header {
-    background-color: #023859;
+    background-color: var(--cor-azul-escuro);
     height: 10vh;
     display: flex;
     position: fixed;
@@ -25,7 +25,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #023859;
+    background-color: var(--cor-azul-escuro);
     width: fit-content;
     padding: 20px;
     border: 1px solid rgba(186, 185, 185, 0.658);

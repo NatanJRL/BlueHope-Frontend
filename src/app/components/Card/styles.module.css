@@ -1,5 +1,5 @@
 .card{
-    background-color: #023859;
+    background-color: var(--cor-azul-escuro);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
