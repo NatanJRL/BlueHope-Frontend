@@ -1,0 +1,26 @@
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+
+.labelStyle{
+    margin-left: 0.5rem;
+    color: white;
+    font-weight: 550;
+    font-size: 1.3rem;
+}
+
+.inputStyle{
+    width: 50vw;
+    min-width: 200px;
+    max-width: 400px;
+    margin-top: 0.5rem;
+    border: white solid 2px;
+    border: solid white 1px;
+    background-color: rgb(255, 255, 255, .27);
+    border-radius: 20px;
+    height: 3.7vh;
+    padding-left: 1vw;
+}
