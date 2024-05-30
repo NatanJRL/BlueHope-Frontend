@@ -48,7 +48,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 10vw;
-    background-color: --cor-azul-pálido;
+    background-color: var(--cor-azul-pálido); 
     color: white;
 }
 
