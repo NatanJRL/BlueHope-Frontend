@@ -51,7 +51,7 @@ const Login = () => {
             text='Entrar'
         />
 
-        <p className={styles.signupClickText}>Não tem cadastro? Faça já o seu! <Link className={styles.signupLink} href={"*"}>Clique aqui.</Link></p>
+        <p className={styles.signupClickText}>Não tem cadastro? Faça já o seu! <Link className={styles.signupLink} href={"/signUp"}>Clique aqui.</Link></p>
 
 
     </main>

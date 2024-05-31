@@ -19,7 +19,7 @@ const Home = () => {
           <div className={styles.buttonGrid}>
             <Button
               onClick={() => {
-                console.log("FUNCIONOU");
+                router.push("/signUp");
               }}
               text="Criar conta"
             ></Button>
