@@ -10,6 +10,8 @@ const Login = () => {
     
   return (
     <main className={styles.wholeContainer}>
+        
+        <div className={styles.formLogin}>
         <Link href={"/home"}>
             <Image src={"/BlueHope-Logo.svg"}
                 width={100}
@@ -20,37 +22,38 @@ const Login = () => {
             />
         </Link>
 
-        <div className={styles.loginTitleContainer}>
-            <h1>LOGIN</h1>
-            <br/>
-            <p>Faça sua parte com a natureza</p>
-        </div>
+        
+            <div className={styles.loginTitleContainer}>
+                <h1>LOGIN</h1>
+                <br/>
+                <p>Faça sua parte com a natureza</p>
+            </div>
 
-        <div className={styles.inputLoginContainer}>
-            <Input
-                label='Email:'
-                type='email'
-                name='email'
-                id='email'
-                onChange={() => {}}
-                value={""}
+            <div className={styles.inputLoginContainer}>
+                <Input
+                    label='Email:'
+                    type='email'
+                    name='email'
+                    id='email'
+                    onChange={() => {}}
+                    value={""}
+                />
+                <Input
+                    label='Senha:'
+                    type='password'
+                    name='password'
+                    id='password'
+                    onChange={() => {}}
+                    value={""}
+                />
+            </div>
+
+            <Button
+                onClick={() => {}}
+                variant='secondary'
+                text='Entrar'
             />
-            <Input
-                label='Senha:'
-                type='password'
-                name='password'
-                id='password'
-                onChange={() => {}}
-                value={""}
-            />
         </div>
-
-        <Button
-            onClick={() => {}}
-            variant='secondary'
-            text='Entrar'
-        />
-
         <p className={styles.signupClickText}>Não tem cadastro? Faça já o seu! <Link className={styles.signupLink} href={"/signUp"}>Clique aqui.</Link></p>
 
 
