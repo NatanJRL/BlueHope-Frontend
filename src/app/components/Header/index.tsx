@@ -1,21 +1,33 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './styles.module.css'
 import Image from 'next/image'
 
 const Header = () => {
 
+    const [ScrollY, setScrollY] = useState(0)
     const [menuActive, setMenuActive] = useState(false)
 
     const toggleMenu = () => {
         setMenuActive(!menuActive)
     }
 
+    const handleScroll = () => {
+        setScrollY(window.scrollY);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <>
-            <div className={styles.headerContainer}>
-                <header className={styles.header}>
+            <div className={`${styles.headerContainer} ${scrollY > 230 ? styles.scrolled : ''}`}>
+                <header className={`${styles.header} ${scrollY > 230 ? styles.scrolled : ''}`}>
 
 
                     <Link href={"*"}>

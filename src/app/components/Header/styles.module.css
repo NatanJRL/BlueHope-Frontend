@@ -67,8 +67,14 @@
         background-color:transparent;
         z-index: 1;
         position: fixed;
+        transition: .3s;
     }
     
+    .headerContainer.scrolled{
+        background-color: var(--cor-azul-escuro);
+        height: 13vh;
+        z-index: 1000;
+    }
 
     .header {
         height: 10vh;
@@ -80,6 +86,11 @@
         padding: 1rem;
         align-items: center;
         z-index: 2;
+        transition: 0.3s;
+    }
+
+    .header.scrolled{
+        padding: 0.5rem;
     }
 
     .listContainer{
