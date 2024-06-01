@@ -5,26 +5,17 @@ import Link from 'next/link'
 import styles from './styles.module.css'
 import Input from '@/app/components/Input'
 import Button from '@/app/components/Button'
+import Header from '@/app/components/Header'
 
 const Login = () => {
     
   return (
     <main className={styles.wholeContainer}>
-        
-        <div className={styles.formLogin}>
-        <Link href={"/home"}>
-            <Image src={"/BlueHope-Logo.svg"}
-                width={100}
-                height={100}
-                id='logo'
-                className={styles.logoLogin}
-                alt='Logo da BlueHope'
-            />
-        </Link>
 
+        <div className={styles.formLogin}>
         
             <div className={styles.loginTitleContainer}>
-                <h1>LOGIN</h1>
+                <h1>Login</h1>
                 <br/>
                 <p>Faça sua parte com a natureza</p>
             </div>
@@ -37,6 +28,7 @@ const Login = () => {
                     id='email'
                     onChange={() => {}}
                     value={""}
+                    isForLogin
                 />
                 <Input
                     label='Senha:'
@@ -45,6 +37,7 @@ const Login = () => {
                     id='password'
                     onChange={() => {}}
                     value={""}
+                    isForLogin
                 />
             </div>
 
@@ -52,9 +45,11 @@ const Login = () => {
                 onClick={() => {}}
                 variant='secondary'
                 text='Entrar'
+                id={styles.button}
             />
+            <p className={styles.signupClickText}>Não tem cadastro? Faça já o seu! <Link className={styles.signupLink} href={"/signUp"}>Clique aqui.</Link></p>
         </div>
-        <p className={styles.signupClickText}>Não tem cadastro? Faça já o seu! <Link className={styles.signupLink} href={"/signUp"}>Clique aqui.</Link></p>
+        
 
 
     </main>

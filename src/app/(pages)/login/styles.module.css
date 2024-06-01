@@ -1,5 +1,3 @@
-
-
 .wholeContainer{
     display: flex;
     flex-direction: column;
@@ -18,6 +16,13 @@
 
 }
 
+#button{
+    width: 100%;
+    margin: 0;
+    max-width: none ;
+}
+
+
 .loginTitleContainer h1{
     font-weight: bolder;
 }
@@ -33,15 +38,16 @@
 }
 
 .signupClickText{
-    margin-top: 3rem;
+    margin-top: 1rem;
     font-weight: lighter;
-    color: white;
+    font-size: smaller;
+    color: var(--cor-azul-escuro);
     width: 75%;
     text-align: center;
 }
 
 .signupLink{
-    color: white;
+    color: var(--cor-azul-escuro);
     font-weight: lighter;
 }
 
