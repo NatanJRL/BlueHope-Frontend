@@ -7,15 +7,17 @@ type Props = {
     name: string,
     id: string,
     onChange: () => void,
-    value: string | number
+    value: string | number,
+    isForLogin?: boolean
 }
 
-const Input: React.FC<Props> = ({label, type, name,  id, onChange, value=""}) => {
+const Input: React.FC<Props> = ({label="", type, name,  id, onChange, value="", isForLogin=false}) => {
   return (
     <>
         <div className={styles.inputContainer}>
-            <label className={styles.labelStyle} htmlFor={label}>{label}</label>
-            <input onChange={onChange} className={styles.inputStyle} type={type} value={value} name={name} id={id} />
+            {isForLogin ? (<label className={styles.labelStyle} htmlFor={label}>{label}</label>
+            ): ""}
+            <input onChange={onChange} className={styles.inputStyle} placeholder={isForLogin ? "" : label} type={type} value={value} name={name} id={id} />
         </div>
     </>
 

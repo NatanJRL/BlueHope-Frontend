@@ -9,10 +9,10 @@ type ButtonProps = {
     id?: string;
   }
 
-  const Button: React.FC<ButtonProps> = ({ onClick, variant, text}) => {
+  const Button: React.FC<ButtonProps> = ({ onClick, variant, text, id}) => {
 
     return (
-      <button onClick= {onClick} id='button' className={variant === "secondary" ?  styles.secondary : styles.primary }>
+      <button onClick= {onClick} id={id} className={variant === "secondary" ?  styles.secondary : styles.primary }>
         {text}
       </button >
     );
