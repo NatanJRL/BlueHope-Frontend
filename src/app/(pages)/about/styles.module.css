@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.wholeAboutPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutContainer{
+    width: 80%;
+    padding: 4rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Inter;
+}
+
+.textImageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottleImage{
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+    max-width: 300px ;
+}
+
+.textBox{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0rem;
+}
+
+.textBox h1{
+    color: var(--cor-azul-escuro);
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin-bottom: 1em;
+}
+
+.textBox h1 span{
+    color: var(--cor-logo);
+    font-weight: 400;
+}
+
+.textBox h1 span strong{
+    font-weight: 700;
+}
+
+.textBox p{
+    font-weight: 400;
+}
+
+
+@media (min-width: 767px ) {
+
+    .textImageBox{
+        flex-direction: row;
+    }
+
+
+    .textBox p{
+        align-self: center;
+        width: 90%;
+        margin-bottom: 3rem;
+    }
+}

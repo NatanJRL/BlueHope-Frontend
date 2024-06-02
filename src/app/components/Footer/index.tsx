@@ -18,12 +18,12 @@ const Footer = () => {
 
             <details>
                 <summary>Pedro Moreira de Jesus RM553912 <strong>⤵</strong></summary>
-                ➲ <a href='https://github.com/NatanJRL'>GitHub/PedroJesus</a>
+                ➲ <a href='https://github.com/QueijoQualho'>GitHub/PedroJesus</a>
             </details>
 
             <details>
                 <summary>Natan Junior Rodrigues Lopes RM552626  <strong>⤵</strong></summary>
-                ➲ <a href='https://github.com/QueijoQualho'>GitHub/NatanLopes</a>
+                ➲ <a href='https://github.com/NatanJRL'>GitHub/NatanLopes</a>
             </details>
 
         </div>
