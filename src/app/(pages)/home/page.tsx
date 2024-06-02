@@ -5,6 +5,8 @@ import styles from "./styles.module.css";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
 import Card from "@/app/components/Card";
+import Footer from "@/app/components/Footer";
+
 
 const Home = () => {
   const router = useRouter();
@@ -61,7 +63,7 @@ const Home = () => {
         <Card path="/pin_icon.svg" text="Mapear Despejo de Plástico" />
       </div>
 
-      <div className={styles.break}></div>
+      <Footer/>
     </>
   );
 };
