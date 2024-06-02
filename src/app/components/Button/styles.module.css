@@ -23,7 +23,7 @@
     max-width: 250px;
     padding: 6px 10px;
     border-radius: 4px;
-
+    text-decoration: none;
     cursor: pointer;
     border: none;
     transition: 0.1s ease-in-out;

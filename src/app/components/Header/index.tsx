@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './styles.module.css'
 import Image from 'next/image'
+import BlueHopeLogo from '../../../../public/BlueHope-Logo.svg'
 
     type Prop = {
         isForAbout?: boolean
