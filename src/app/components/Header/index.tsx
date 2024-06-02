@@ -6,11 +6,11 @@ import Image from 'next/image'
 import BlueHopeLogo from '../../../../public/BlueHope-Logo.svg'
 
     type Prop = {
-        isForAbout?: boolean
+        isForHome?: boolean
     }
 
 const Header: React.FC<Prop> = ({
-    isForAbout  = false,
+    isForHome  = false
 }) => {
 
     const [ScrollY, setScrollY] = useState(0)
@@ -35,8 +35,8 @@ const Header: React.FC<Prop> = ({
 
     return (
         <>
-            <div className={`${styles.headerContainer} ${scrollY > 230 ? styles.scrolled : ''} ${isForAbout ? styles.aboutHeader : ''}`}>
-                <header className={`${styles.header} ${scrollY > 230 ? styles.scrolled : ''} ${isForAbout ? styles.aboutHeader : ''} `}>
+            <div className={`${styles.headerContainer} ${scrollY > 230 ? styles.scrolled : ''} ${isForHome ? styles.homeHeaderContainer : ''}`}>
+                <header className={`${styles.header} ${scrollY > 230 ? styles.scrolled : ''} ${isForHome ? styles.homeHeader : ''} `}>
 
 
                     <Link href={"/home"}>
