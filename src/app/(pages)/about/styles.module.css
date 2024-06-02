@@ -55,6 +55,8 @@
 
 .textBox p{
     font-weight: 400;
+    max-width: 70%;
+    align-self: center;
 }
 
 

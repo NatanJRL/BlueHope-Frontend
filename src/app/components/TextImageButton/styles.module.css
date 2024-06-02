@@ -17,13 +17,14 @@
 
 .TextImageButton h2 {
     font-weight: 800;
+    text-align: center;
 }
 
 .TextButton {
     max-width: 354px;
 }
 
-.TextButton #button-below-text {
+.TextButton #ButtonBelowText {
     display: none;
 }
 
@@ -35,23 +36,23 @@
     width: 20rem;
 }
 
-.image-button {
+.ImageButton {
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 25px;
 }
 
-.image-button img {
+.ImageButton img {
     width: 100%;
     height: 100%;
 }
 
-.image-button Button {
+.ImageButton Button {
     font-size: medium;
 }
 
-#link {
+#Link {
     text-decoration: none;
 }
 
@@ -78,6 +79,7 @@
         font-weight: 800;
         height: fit-content;
         padding-top: 43px;
+        text-align: left;
     }
 
     .TextButton {
@@ -86,14 +88,14 @@
         row-gap: 52px;
     }
 
-    .TextButton #button-below-text {
+    .TextButton #ButtonBelowText {
         display: block;
         font-size: 24px;
         width: 100%;
         height: 64px;
     }
 
-    .image-button #button-below-image {
+    .ImageButton #ButtonBelowImage {
         display: none;
     }
 
@@ -135,14 +137,14 @@
         row-gap: 52px;
     }
 
-    .text-button #button-below-text {
+    .text-button #ButtonBelowText {
         display: block;
         font-size: 24px;
         width: 100%;
         height: 64px;
     }
 
-    .image-button #button-below-image {
+    .ImageButton #ButtonBelowImage {
         display: none;
 
     }

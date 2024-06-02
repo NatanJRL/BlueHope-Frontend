@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './styles.module.css'
 import Image from 'next/image'
+import BlueHopeLogo from '../../../../public/BlueHope-Logo.svg'
 
 const Header = () => {
 
@@ -31,7 +32,7 @@ const Header = () => {
 
 
                     <Link href={"*"}>
-                        <Image src={"/BlueHope-Logo.svg"}
+                        <Image src={BlueHopeLogo}
                             width={60}
                             height={60}
                             id='logo'
