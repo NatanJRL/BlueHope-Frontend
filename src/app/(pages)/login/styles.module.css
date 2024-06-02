@@ -60,6 +60,8 @@
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    width: 70vw;
+    max-width: 300px;
 }
 
 .error{
