@@ -1,10 +1,10 @@
 "use client";
 import Button from "@/app/components/Button";
 import Input from "@/app/components/Input";
-import Link from "next/link";
-import { useState } from "react";
-import styles from "./styles.module.css";
 import axios from "axios";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
 
 const steps = [
   {
@@ -55,6 +55,29 @@ const SignIn = () => {
     }));
   };
 
+  const handleCepFocus = async (e: React.FocusEvent<HTMLInputElement>) => {
+    try {
+      const url = "http://localhost:8081/viacep";
+      const value = e.target.value;
+
+      const response = await axios.post(url, {
+        cep: value,
+      });
+
+      const data = response.data;
+
+      setSignup((prevSignup) => ({
+        ...prevSignup,
+        bairro: data.bairro,
+        cidade: data.cidade,
+        estado: data.estado,
+        rua: data.rua,
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const submitRegister = async () => {
     try {
       const url = "http://localhost:8081/auth/signup";
@@ -79,12 +102,7 @@ const SignIn = () => {
 
       setError("");
     } catch (error) {
-      alert(error);
-      if (axios.isAxiosError(error) && error.response!.status === 401) {
-        setError("Email ou senha incorretos");
-      } else {
-        setError("Ocorreu um erro ao fazer login");
-      }
+      console.log(error);
     }
   };
 
@@ -150,6 +168,7 @@ const SignIn = () => {
                     id={styles.inputRegister}
                     onChange={handleChange}
                     value={signup.cep}
+                    onBlur={handleCepFocus}
                   />
                   <Input
                     label="Rua:"
