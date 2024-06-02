@@ -1,113 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
-.signUpContainer{
+.wholeContainer{
     display: flex;
-    justify-content: space-between;
-}
-
-
-.leftSideGroup{
-    background: linear-gradient(180deg, rgba(80,160,191,1) 0%, rgba(2,83,115,1) 100%);
-    width: 45%;
-    filter: drop-shadow(2px 0px 2px black);
-}
-
-
-.rightSideGroup {
-    background-image: image-set('/oceanBg.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
-    width: 55%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: rgb(80,160,191);
+    background: linear-gradient(180deg, rgba(80,160,191,1) 0%, rgba(2,83,115,1) 100%);
 }
 
-.rightSideGroup h1{
-    color: white;
-    font-family: Cinzel;
-    width: 80%;
-    font-weight: lighter;
-    text-align: center;
-}
-
-
-
-.leftSideContainer{
+.loginTitleContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    color: #023859;
+
 }
 
-.headerSignUp{
-    display: flex;
-    align-items: center;
+#button{
+    width: 100%;
+    margin: 0;
+    max-width: none ;
 }
 
 
-.formSignUp{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-}
-
-.leftSideContainer h1{
-    color: white;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.loginTitleContainer h1{
     font-weight: bolder;
 }
 
-.signUpButton{
-    margin-top: 2rem;
-    margin-bottom: 5rem;
-    align-self: center;
+.loginTitleContainer p{
+    font-weight: lighter;
 }
 
-
-.halfInputGroup{
-    display: flex;
-    justify-content: space-between;
-}
-
-.inputLabelGroup{
+.inputLoginContainer{
     display: flex;
     flex-direction: column;
-
+    margin-bottom: 8vh;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
 }
 
-.inputLabelGroup input{
-    width: 100px;
-    margin-top: 0.5rem;
-    border: solid white 1px;
-    background-color: rgb(255, 255, 255, .27);
-    border-radius: 20px;
-    height: 3.7vh;
-    padding-left: 1vw;
-    min-height: 30px;
+#inputRegister{
+    width: 80%;
+    align-self: center;
+    min-width: 100px;
+    
 }
 
-.inputLabelGroup label{
-    margin-left: 0.5rem;
-    color: white;
-    font-weight: 550;
-    font-size: 1.3rem;
+.signupClickText{
+    margin-top: 1rem;
+    font-weight: lighter;
+    font-size: smaller;
+    color: var(--cor-azul-escuro);
+    width: 75%;
+    text-align: center;
+}
+
+.signupLink{
+    color: var(--cor-azul-escuro);
+    font-weight: lighter;
 }
 
 
-
-
-@media (max-width: 700px) {
-    .rightSideGroup{
-        display: none;
-    }
-
-
-    .leftSideGroup{
-        width: 100%;
-        height: 100vh;
-    }
+.formLogin{
+    background-color: white;
+    padding: 2rem;
+    padding-bottom: 4rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.buttonContainer{
+    display: flex;
+    width: 100%;
+    column-gap: 20px;
+}
+.registerInputContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }

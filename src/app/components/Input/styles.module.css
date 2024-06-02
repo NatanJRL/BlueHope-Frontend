@@ -2,19 +2,19 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-
+    width: 100%;
 }
 
 .labelStyle{
     margin-top: 1rem;
     margin-left: 0.1rem;
-    color: #023859;
+    color: var(----cor-azul-médio);
     font-weight: 300;
     font-size: 1rem;
 }
 
 .inputStyle{
-    width: 50vw;
+    width: 100%;
     min-width: 200px;
     max-width: 300px;
     min-height: 30px;
@@ -23,10 +23,10 @@
     border: none;
     border-bottom: 2px solid var(--cor-azul-escuro);
     height: 3.7vh;
-    padding-left: 1vw;
     color: var(--cor-azul-escuro);
 }
 
 .inputStyle::placeholder{
+    padding-left: .5vw;
     color: var(--cor-azul-escuro);
 }
