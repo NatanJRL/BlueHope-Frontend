@@ -4,7 +4,13 @@ import Link from 'next/link'
 import styles from './styles.module.css'
 import Image from 'next/image'
 
-const Header = () => {
+    type Prop = {
+        isForAbout?: boolean
+    }
+
+const Header: React.FC<Prop> = ({
+    isForAbout  = false,
+}) => {
 
     const [ScrollY, setScrollY] = useState(0)
     const [menuActive, setMenuActive] = useState(false)
@@ -24,13 +30,15 @@ const Header = () => {
         };
     }, []);
 
+
+
     return (
         <>
-            <div className={`${styles.headerContainer} ${scrollY > 230 ? styles.scrolled : ''}`}>
-                <header className={`${styles.header} ${scrollY > 230 ? styles.scrolled : ''}`}>
+            <div className={`${styles.headerContainer} ${scrollY > 230 ? styles.scrolled : ''} ${isForAbout ? styles.aboutHeader : ''}`}>
+                <header className={`${styles.header} ${scrollY > 230 ? styles.scrolled : ''} ${isForAbout ? styles.aboutHeader : ''} `}>
 
 
-                    <Link href={"*"}>
+                    <Link href={"/home"}>
                         <Image src={"/BlueHope-Logo.svg"}
                             width={60}
                             height={60}
@@ -64,7 +72,7 @@ const Header = () => {
                             <li>
                                 <Link
                                     className={styles.laterallink}
-                                    href={"*"}>Sobre</Link>
+                                    href={"/about"}>Sobre</Link>
                             </li>
                         </ul>
                     </nav>
@@ -84,7 +92,7 @@ const Header = () => {
                             <li>
                                 <Link
                                     className={styles.link}
-                                    href={"*"}>Sobre</Link>
+                                    href={"/about"}>Sobre</Link>
                             </li>
                         </ul>
                     </nav>
