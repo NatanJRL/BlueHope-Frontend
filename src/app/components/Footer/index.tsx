@@ -32,16 +32,6 @@ const Footer = () => {
 
 
 
-
-
-    // <footer className={styles.footerGroup}>
-    //     <h4>1TDSPA</h4>
-    //     <ul>
-    //         <li>Pedro Lucca - RM553873</li>
-    //         <li>Pedro Moreira de Jesus - RM553912 </li>
-    //         <li>Natan Junior Rodrigues Lopes - RM552626</li>
-    //     </ul>
-    // </footer>
   )
 }
 
