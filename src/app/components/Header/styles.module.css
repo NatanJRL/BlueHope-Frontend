@@ -129,5 +129,11 @@
         list-style: none;
     }
 
+    .aboutHeader{
+        background-color: var(--cor-azul-escuro);
+        position: relative;
+        height: 13vh;
+    }
+
     
 }

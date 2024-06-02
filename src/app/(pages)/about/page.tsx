@@ -11,8 +11,12 @@ import Footer from '@/app/components/Footer'
 const About = () => {
   return (
     <div>
-      <Header />
+      <Header 
+          isForAbout
+        />
+
       <div className={styles.wholeAboutPage}>
+          
         <div className={styles.aboutContainer}>
 
           <div className={styles.textImageBox}>
