@@ -13,7 +13,9 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <Header 
+        isForHome
+      />
 
       <div className={styles.videoContainer}>
         <div className={styles.titleContainer}>
