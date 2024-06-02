@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.footerGroup{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3em 0em;
+    background-color: var(--cor-azul-escuro);
+    color: white;
+    font-family: Inter;
+}
+
+.footerGroup details{
+    cursor: pointer;
+    margin-bottom: .5em;
+    font-size: 13px;
+}
+
+.footerGroup summary{
+    list-style: circle;
+    
+}
+
+.footerGroup a{
+    padding-left: 1em;
+    color: aqua;
+}
