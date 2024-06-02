@@ -23,7 +23,7 @@
     border: none;
     border-bottom: 2px solid var(--cor-azul-escuro);
     height: 3.7vh;
-    color: var(--cor-azul-escuro);
+    padding-left: 1vw;
 }
 
 .inputStyle::placeholder{

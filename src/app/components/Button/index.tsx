@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './styles.module.css'
 
 type ButtonProps = {
-    onClick: () => void;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     variant?: 'primary' | 'secondary';
     text?: string;
     id?: string;
