@@ -8,7 +8,7 @@
 
 .aboutContainer{
     width: 80%;
-    padding: 4rem 0rem;
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;

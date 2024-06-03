@@ -21,7 +21,7 @@ const TextImageButton = ({ text, image, altImage, buttonVariant, buttonText }: T
                     <h2>{text}</h2>
 
 
-                    <Link id={styles.Link} href={"/pages/signUp"}>
+                    <Link id={styles.Link} href={"/signUp"}>
                         <Button id={styles.ButtonBelowText} variant={buttonVariant} text={buttonText} onClick={() => { }} />
                     </Link>
                 </div>
@@ -30,7 +30,7 @@ const TextImageButton = ({ text, image, altImage, buttonVariant, buttonText }: T
                     <Image src={image ?? ''} alt={altImage ?? ''} />
 
 
-                    <Link id={styles.Link} href={"/pages/signUp"}>
+                    <Link id={styles.Link} href={"/signUp"}>
                         <Button id={styles.ButtonBelowImage} variant={buttonVariant} text={buttonText} onClick={() => { }} />
                     </Link>
                 </div>

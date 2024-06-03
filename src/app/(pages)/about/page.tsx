@@ -50,6 +50,7 @@ const About = () => {
 
 
       </div>
+
       <TextImageButton text='Venha conosco e faça parte da luta pela esperança' image={BlueHopeLogo} buttonText='Faça o Teste Grátis' buttonVariant='secondary' altImage='Logo da BlueHope' />
       <Footer />
 
