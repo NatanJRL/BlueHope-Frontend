@@ -52,9 +52,9 @@ const Home = () => {
 
       <div className={styles.break}></div>
 
-      <h4 className={styles.introduceText}>Com a IA da BlueHope você pode</h4>
+      <h1 className={styles.introduceText}>Com a IA da BlueHope você pode</h1>
 
-      <div className={styles.cardGroup}>
+      <div className={styles.cardContainer}>
         <Card path="/pin_icon.svg" text="Mapear o Despejo de Plástico" />
 
         <Card

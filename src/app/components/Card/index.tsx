@@ -9,15 +9,20 @@ type Props = {
 
 const Card: React.FC<Props> = ({path, text}) => {
   return (
-    <div className={styles.card}>
-      <Image
-        src={path}
-        width={100}
-        height={100}
-        alt='Icon'
-      />
-        <br />
-      <h2 className={styles.cardText}>{text}</h2>
+    <div className={styles.cardGroup}>
+
+      <div className={styles.card}>
+        <Image className={styles.cardImage}
+          src={path}
+          width={100}
+          height={100}
+          alt='Icon'
+        />
+
+        <h2 className={styles.cardText}>{text}</h2>
+
+      </div>
+
     </div>
   )
 }
