@@ -99,11 +99,13 @@
         position: fixed;
         height: 13vh;
         padding: 1rem;
+        min-height: 120px;
     }
 
     .homeHeaderContainer{
         position: fixed;
         background-color: transparent;
+        min-height: 120px;
     }
 
     .listContainer{

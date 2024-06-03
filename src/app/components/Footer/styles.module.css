@@ -25,3 +25,15 @@
     padding-left: 1em;
     color: aqua;
 }
+
+
+@media (max-width: 400px) {
+    
+    .footerGroup{
+        flex-direction: column;
+    }
+
+    .footerGroup h2{
+        margin-bottom: 1em;
+    }
+}
