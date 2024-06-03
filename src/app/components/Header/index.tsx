@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './styles.module.css'
 import Image from 'next/image'
-import BlueHopeLogo from '../../../../public/BlueHope-Logo.svg'
 
     type Prop = {
         isForHome?: boolean
@@ -13,7 +12,7 @@ const Header: React.FC<Prop> = ({
     isForHome  = false
 }) => {
 
-    const [ScrollY, setScrollY] = useState(0)
+    const [scrollY, setScrollY] = useState(0)
     const [menuActive, setMenuActive] = useState(false)
 
     const toggleMenu = () => {
