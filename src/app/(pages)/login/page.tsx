@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 import styles from "./styles.module.css";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Login = () => {
   const [login, setLogin] = useState({
@@ -12,6 +13,7 @@ const Login = () => {
     senha: "",
   });
   const [error, setError] = useState("");
+  const [captcha, setCaptcha] = useState<string | null>();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,15 +24,20 @@ const Login = () => {
   };
 
   const submitRequest = async () => {
+    if (!captcha) {
+      return setError("reCAPTCHA inválido");
+    }
+
     try {
-      const url = "http://localhost:8081/auth/login";
+      const url = "https://a1f0-2804-14d-32a7-496f-c44b-f6bd-64a-2cfd.ngrok-free.app/auth/login";
       const response = await axios.post(url, {
         email: login.email,
         senha: login.senha,
+        recaptchaToken: captcha,
       });
 
-      console.log(response.data);
-
+      console.log(response);
+      
       setError("");
     } catch (error) {
       if (axios.isAxiosError(error) && error.response!.status === 401) {
@@ -71,6 +78,12 @@ const Login = () => {
             className={error ? styles.error : ""}
           />
         </div>
+
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+          className={`mx-auto`}
+          onChange={setCaptcha}
+        />
 
         <Button
           onClick={submitRequest}
