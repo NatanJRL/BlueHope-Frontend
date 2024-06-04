@@ -17,6 +17,10 @@
     font-family: Inter;
 }
 
+.textImageButtonBox{
+    width: 70%;
+}
+
 .textImageBox{
     display: flex;
     flex-direction: column;
@@ -60,7 +64,12 @@
 }
 
 
-@media (min-width: 767px ) {
+@media (min-width: 762px ) {
+
+    .textImageButtonBox{
+        width: 80%;
+
+    }
 
     .textImageBox{
         flex-direction: row;

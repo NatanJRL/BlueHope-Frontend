@@ -42,16 +42,16 @@ const About = () => {
             <p>Apesar de simples, os modelos de IA que desenvolvemos podem ser importantes ferramentas no combate a poluição marítma, garantindo a qualidade da água e principalmente, a longevidade do planeta Terra.</p>
 
           </div>
-          
-
-
 
         </div>
 
+        
 
       </div>
 
-      <TextImageButton text='Venha conosco e faça parte da luta pela esperança' image={BlueHopeLogo} buttonText='Faça o Teste Grátis' buttonVariant='secondary' altImage='Logo da BlueHope' />
+      <div className={styles.textImageButtonBox}> 
+        <TextImageButton text='Venha conosco e faça parte da luta pela esperança' image={BlueHopeLogo} buttonText='Faça o Teste Grátis' buttonVariant='secondary' altImage='Logo da BlueHope' />
+      </div>
       <Footer />
 
     </div>
