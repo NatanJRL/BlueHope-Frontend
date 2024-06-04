@@ -89,7 +89,7 @@
         width: 100%;
         position: relative;
         justify-content: space-around;
-        padding: 0.5rem;
+        padding-top: .5rem;
         align-items: center;
         z-index: 2;
         transition: 0.3s;
@@ -103,7 +103,6 @@
         background-color: transparent;
         position: fixed;
         height: 13vh;
-        padding: 1rem;
         min-height: 120px;
     }
 

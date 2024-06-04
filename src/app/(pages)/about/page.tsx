@@ -43,15 +43,14 @@ const About = () => {
 
           </div>
 
+
         </div>
 
         
 
       </div>
 
-      <div className={styles.textImageButtonBox}> 
-        <TextImageButton text='Venha conosco e faça parte da luta pela esperança' image={BlueHopeLogo} buttonText='Faça o Teste Grátis' buttonVariant='secondary' altImage='Logo da BlueHope' />
-      </div>
+      <TextImageButton text='Venha conosco e faça parte da luta pela esperança' image={BlueHopeLogo} buttonText='Faça o Teste Grátis' buttonVariant='secondary' altImage='Logo da BlueHope' />
       <Footer />
 
     </div>
