@@ -9,7 +9,7 @@ const Footer = () => {
             <h2>1TDSPA</h2>
         </div>
 
-        <div>
+        <div className={styles.summaryGroup}>
 
             <details>
                 <summary>Pedro Lucca RM553873  <strong>⤵</strong></summary>

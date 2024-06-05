@@ -12,7 +12,6 @@
     width: 40vw;
     flex-direction: column;
     color: #032D60;
-    gap: 20px;
 }
 
 .TextImageButton h2 {
@@ -100,7 +99,7 @@
     }
 
     .TextImageButton img {
-        width: 400px;
+        width: 300px;
     }
 
 }

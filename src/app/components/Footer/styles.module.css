@@ -18,12 +18,15 @@
 
 .footerGroup summary{
     list-style: circle;
-    
 }
 
 .footerGroup a{
     padding-left: 1em;
     color: aqua;
+}
+
+.summaryGroup{
+    height: 15vh;
 }
 
 

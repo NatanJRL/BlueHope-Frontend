@@ -34,8 +34,6 @@ const SignIn = () => {
   const [error, setError] = useState("");
   const [currentStep, setCurrentStep] = useState(0);
 
-  /* VIACEP */
-
   /* STEPS */
   function handleNext() {
     setCurrentStep((prevState) => prevState + 1);
@@ -55,9 +53,10 @@ const SignIn = () => {
     }));
   };
 
+  /* ViaCep */
   const handleCepFocus = async (e: React.FocusEvent<HTMLInputElement>) => {
     try {
-      const url = "http://localhost:8081/viacep";
+      const url = "https://a1f0-2804-14d-32a7-496f-c44b-f6bd-64a-2cfd.ngrok-free.app/viacep";
       const value = e.target.value;
 
       const response = await axios.post(url, {
@@ -78,9 +77,10 @@ const SignIn = () => {
     }
   };
 
+  /* API */
   const submitRegister = async () => {
     try {
-      const url = "http://localhost:8081/auth/signup";
+      const url = "https://a1f0-2804-14d-32a7-496f-c44b-f6bd-64a-2cfd.ngrok-free.app/auth/signup";
       const response = await axios.post(url, {
         nome: signup.nome,
         email: signup.email,
