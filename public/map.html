@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script>
+      L_NO_TOUCH = false;
+      L_DISABLE_3D = false;
+    </script>
+
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <style>
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <style>
+      #map_cb78bf9c8cad32130f69a701915adcae {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+      }
+      .leaflet-container {
+        font-size: 1rem;
+      }
+
+      .leaflet-popup-content-wrapper {
+        background-color: #023859;
+        color: white;
+      }
+
+      
+    </style>
+
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+  </head>
+  <body>
+    <div class="folium-map" id="map_cb78bf9c8cad32130f69a701915adcae"></div>
+  </body>
+  <script>
+    var mapa = L.map("map_cb78bf9c8cad32130f69a701915adcae", {
+      center: [0.0, 0.0],
+      crs: L.CRS.EPSG3857,
+      zoom: 2,
+      zoomControl: true,
+      preferCanvas: false,
+    });
+
+    var tile_layer = L.tileLayer(
+      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        attribution:
+          '\u0026copy; \u003ca href="https://www.openstreetmap.org/copyright"\u003eOpenStreetMap\u003c/a\u003e contributors',
+        detectRetina: false,
+        maxNativeZoom: 19,
+        maxZoom: 19,
+        minZoom: 0,
+        noWrap: false,
+        opacity: 1,
+        subdomains: "abc",
+        tms: false,
+      }
+    );
+
+    tile_layer.addTo(mapa);
+
+    var geocoderOpts_geocoder_941569a1d92293d7da6f92abad4a31b2 = {
+      collapsed: false,
+      defaultMarkGeocode: true,
+      position: "topright",
+      provider: "nominatim",
+      providerOptions: {},
+      zoom: 11,
+    };
+
+    // note: geocoder name should start with lowercase
+    var geocoderName_geocoder_941569a1d92293d7da6f92abad4a31b2 =
+      geocoderOpts_geocoder_941569a1d92293d7da6f92abad4a31b2["provider"];
+
+    var customGeocoder_geocoder_941569a1d92293d7da6f92abad4a31b2 =
+      L.Control.Geocoder[
+        geocoderName_geocoder_941569a1d92293d7da6f92abad4a31b2
+      ](
+        geocoderOpts_geocoder_941569a1d92293d7da6f92abad4a31b2[
+          "providerOptions"
+        ]
+      );
+    geocoderOpts_geocoder_941569a1d92293d7da6f92abad4a31b2["geocoder"] =
+      customGeocoder_geocoder_941569a1d92293d7da6f92abad4a31b2;
+
+    L.Control.geocoder(geocoderOpts_geocoder_941569a1d92293d7da6f92abad4a31b2)
+      .on("markgeocode", function (e) {
+        var zoom =
+          geocoderOpts_geocoder_941569a1d92293d7da6f92abad4a31b2["zoom"] ||
+          mapa.getZoom();
+        mapa.setView(e.geocode.center, zoom);
+      })
+      .addTo(mapa);
+
+    function on_click(e) {
+      let lat = e.latlng.lat;
+      let lon = e.latlng.lng;
+      let geocoder = L.Control.Geocoder.nominatim();
+
+      /* Limpando */
+      const div = document.querySelector(".leaflet-marker-pane");
+      const div2 = document.querySelector(".leaflet-shadow-pane");
+      div.innerHTML = ``;
+      div2.innerHTML = ``;
+
+      /* API */
+      const url = `http://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=en&zoom=3`;
+      fetch(url)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Erro na solicitação");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          const country = data.address.country;
+          return ApiPython(country);
+        })
+        .then((data) => {
+          const div = document.createElement("div");
+          const p = document.createElement("p");
+          p.textContent = `Qualidade da água: ${data.prediction}\n`;
+          div.appendChild(p);
+          const filteredData = data.filtered_data[0];
+          for (const key in filteredData) {
+            const p2 = document.createElement("p");
+            if (filteredData.hasOwnProperty(key)) {
+              p2.textContent = `${key}: ${filteredData[key].toFixed(2)}\n`;
+            }
+            div.appendChild(p2);
+          }
+          div.className = "textbox";
+
+          let new_mark = L.marker(e.latlng).setLatLng(e.latlng).addTo(mapa);
+          new_mark.dragging.enable();
+          new_mark.bindPopup(div);
+        })
+        .catch((error) => {
+          console.error("Erro:", error);
+        });
+    }
+
+    const ApiPython = (country) => {
+      const encodedCountry = encodeURIComponent(country);
+      const url = `https://modelo-ai.onrender.com/api/${encodedCountry}`;
+      return fetch(url)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Deu erro na Api");
+          }
+          return res.json();
+        })
+        .catch((err) => {
+          console.error("erro:", err);
+        });
+    };
+
+    mapa.on("click", on_click);
+
+   
+  </script>
+</html>

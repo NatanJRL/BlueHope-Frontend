@@ -34,8 +34,8 @@ const Header: React.FC<Prop> = ({
 
     return (
         <>
-            <div className={`${styles.headerContainer} ${scrollY > 230 ? styles.scrolled : ''} ${isForHome ? styles.homeHeaderContainer : ''}`}>
-                <header className={`${styles.header} ${scrollY > 230 ? styles.scrolled : ''} ${isForHome ? styles.homeHeader : ''} `}>
+            <div className={`${styles.headerContainer} ${isForHome && scrollY > 230 ? styles.scrolled : ''} ${isForHome ? styles.homeHeaderContainer : ''}`}>
+                <header className={`${styles.header} ${isForHome && scrollY > 230 ? styles.scrolled : ''} ${isForHome ? styles.homeHeader : ''} `}>
 
 
                     <Link href={"/home"}>
