@@ -152,8 +152,12 @@
     function on_click(e) {
       let lat = e.latlng.lat;
       let lon = e.latlng.lng;
-      let geocoder = L.Control.Geocoder.nominatim();
-
+      let geocoder = L.Control.Geocoder.nominatim({
+        geocodingQueryParams: {
+          protocol: "https:",
+          acceptLanguage: "en",
+        },
+      });
       /* Limpando */
       const div = document.querySelector(".leaflet-marker-pane");
       const div2 = document.querySelector(".leaflet-shadow-pane");
