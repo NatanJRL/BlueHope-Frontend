@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
+import { useRouter } from "next/navigation";
 
 const steps = [
   {
@@ -32,31 +33,71 @@ const SignIn = () => {
     estado: "",
   });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [currentStep, setCurrentStep] = useState(0);
+  const [validationErrors, setValidationErrors] = useState({
+    nome: "",
+    email: "",
+    senha: "",
+    phone: "",
+    cep: "",
+    rua: "",
+    bairro: "",
+    numero: "",
+    cidade: "",
+    estado: "",
+  });
+  const router = useRouter(); 
+
 
   /* STEPS */
-  function handleNext() {
-    setCurrentStep((prevState) => prevState + 1);
-    console.log(currentStep);
-  }
-  function handlePrevious() {
-    setCurrentStep((prevState) => prevState - 1);
-    console.log(currentStep);
-  }
+  const handleNext = () => {
+    if (validate()) {
+      setCurrentStep((prevState) => prevState + 1);
+    }
+  };
 
-  /* PEGA DADO */
+  const handlePrevious = () => {
+    setCurrentStep((prevState) => prevState - 1);
+  };
+
+  /* VALIDATION */
+  const validate = () => {
+    const errors: any = {};
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!signup.nome.trim()) errors.nome = "Nome é obrigatório";
+    if (!emailPattern.test(signup.email)) errors.email = "Email inválido";
+    if (signup.senha.length < 6)
+      errors.senha = "Senha deve ter no mínimo 6 caracteres";
+    if (!signup.phone.trim()) errors.phone = "Telefone é obrigatório";
+
+    if (currentStep === 1) {
+      if (!signup.cep.trim()) errors.cep = "CEP é obrigatório";
+      if (!signup.rua.trim()) errors.rua = "Rua é obrigatória";
+      if (!signup.bairro.trim()) errors.bairro = "Bairro é obrigatório";
+      if (!signup.numero.trim()) errors.numero = "Número é obrigatório";
+      if (!signup.cidade.trim()) errors.cidade = "Cidade é obrigatória";
+      if (!signup.estado.trim()) errors.estado = "Estado é obrigatório";
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  /* HANDLE INPUT CHANGE */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setSignup((prevLogin) => ({
-      ...prevLogin,
+    setSignup((prevSignup) => ({
+      ...prevSignup,
       [name]: value,
     }));
   };
 
-  /* ViaCep */
+  /* VIA CEP */
   const handleCepFocus = async (e: React.FocusEvent<HTMLInputElement>) => {
     try {
-      const url = "https://a1f0-2804-14d-32a7-496f-c44b-f6bd-64a-2cfd.ngrok-free.app/viacep";
+      const url = "https://204f-2804-14d-32a7-496f-c071-ff3-6c54-fa60.ngrok-free.app/viacep";
       const value = e.target.value;
 
       const response = await axios.post(url, {
@@ -77,10 +118,14 @@ const SignIn = () => {
     }
   };
 
-  /* API */
-  const submitRegister = async () => {
+  /* SUBMIT FORM */
+  const submitRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
     try {
-      const url = "https://a1f0-2804-14d-32a7-496f-c44b-f6bd-64a-2cfd.ngrok-free.app/auth/signup";
+      const url = "https://204f-2804-14d-32a7-496f-c071-ff3-6c54-fa60.ngrok-free.app/auth/signup";
       const response = await axios.post(url, {
         nome: signup.nome,
         email: signup.email,
@@ -99,10 +144,15 @@ const SignIn = () => {
       });
 
       console.log(response.data);
-
+      setSuccess("Login bem-sucedido!");
       setError("");
+
+      setTimeout(() => {
+        router.push("/home");
+      }, 2000);
     } catch (error) {
       console.log(error);
+      setError("Ocorreu um erro ao fazer o cadastro");
     }
   };
 
@@ -121,133 +171,159 @@ const SignIn = () => {
             </p>
           </div>
 
-          <div className={styles.inputLoginContainer}>
-            {steps[currentStep].id === "PERSONAL" && (
-              <>
-                <Input
-                  label="Nome:"
-                  type="text"
-                  name="nome"
-                  id=""
-                  onChange={handleChange}
-                  value={signup.nome}
-                />
-                <Input
-                  label="Email:"
-                  type="email"
-                  name="email"
-                  id=""
-                  onChange={handleChange}
-                  value={signup.email}
-                />
-                <Input
-                  label="Senha:"
-                  type="password"
-                  name="senha"
-                  id=""
-                  onChange={handleChange}
-                  value={signup.senha}
-                />
-                <Input
-                  label="Telefone:"
-                  type="phone"
-                  name="phone"
-                  id=""
-                  onChange={handleChange}
-                  value={signup.phone}
-                />
-              </>
-            )}
-            {steps[currentStep].id === "ADDRESS" && (
-              <>
-                <div className={styles.registerInputContainer}>
+          <form onSubmit={submitRegister}>
+            <div className={styles.inputLoginContainer}>
+              {steps[currentStep].id === "PERSONAL" && (
+                <>
                   <Input
-                    label="CEP:"
+                    label="Nome:"
                     type="text"
-                    name="cep"
-                    id={styles.inputRegister}
+                    name="nome"
+                    id=""
                     onChange={handleChange}
-                    value={signup.cep}
-                    onBlur={handleCepFocus}
+                    value={signup.nome}
+                    className={validationErrors.nome ? styles.error : ""}
                   />
+                  {validationErrors.nome && (
+                    <p className={styles.errorText}>{validationErrors.nome}</p>
+                  )}
                   <Input
-                    label="Rua:"
-                    type="text"
-                    name="rua"
-                    id={styles.inputRegister}
+                    label="Email:"
+                    type="email"
+                    name="email"
+                    id=""
                     onChange={handleChange}
-                    value={signup.rua}
+                    value={signup.email}
+                    className={validationErrors.email ? styles.error : ""}
                   />
-                </div>
-                <div className={styles.registerInputContainer}>
+                  {validationErrors.email && (
+                    <p className={styles.errorText}>{validationErrors.email}</p>
+                  )}
                   <Input
-                    label="Bairro:"
-                    type="text"
-                    name="bairro"
-                    id={styles.inputRegister}
+                    label="Senha:"
+                    type="password"
+                    name="senha"
+                    id=""
                     onChange={handleChange}
-                    value={signup.bairro}
+                    value={signup.senha}
+                    className={validationErrors.senha ? styles.error : ""}
                   />
+                  {validationErrors.senha && (
+                    <p className={styles.errorText}>{validationErrors.senha}</p>
+                  )}
                   <Input
-                    label="Número:"
-                    type="text"
-                    name="numero"
-                    id={styles.inputRegister}
+                    label="Telefone:"
+                    type="phone"
+                    name="phone"
+                    id=""
                     onChange={handleChange}
-                    value={signup.numero}
+                    value={signup.phone}
+                    className={validationErrors.phone ? styles.error : ""}
                   />
-                </div>
+                  {validationErrors.phone && (
+                    <p className={styles.errorText}>{validationErrors.phone}</p>
+                  )}
+                </>
+              )}
+              {steps[currentStep].id === "ADDRESS" && (
+                <>
+                  <div className={styles.registerInputContainer}>
+                    <Input
+                      label="CEP:"
+                      type="text"
+                      name="cep"
+                      id={styles.inputRegister}
+                      onChange={handleChange}
+                      value={signup.cep}
+                      onBlur={handleCepFocus}
+                      className={validationErrors.cep ? styles.error : ""}
+                    />
+                    <Input
+                      label="Rua:"
+                      type="text"
+                      name="rua"
+                      id={styles.inputRegister}
+                      onChange={handleChange}
+                      value={signup.rua}
+                      className={validationErrors.rua ? styles.error : ""}
+                    />
+                  </div>
+                  <div className={styles.registerInputContainer}>
+                    <Input
+                      label="Bairro:"
+                      type="text"
+                      name="bairro"
+                      id={styles.inputRegister}
+                      onChange={handleChange}
+                      value={signup.bairro}
+                      className={validationErrors.bairro ? styles.error : ""}
+                    />
+                    <Input
+                      label="Número:"
+                      type="text"
+                      name="numero"
+                      id={styles.inputRegister}
+                      onChange={handleChange}
+                      value={signup.numero}
+                      className={validationErrors.numero ? styles.error : ""}
+                    />
+                  </div>
 
-                <div className={styles.registerInputContainer}>
-                  <Input
-                    label="Cidade:"
-                    type="text"
-                    name="cidade"
-                    id={styles.inputRegister}
-                    onChange={handleChange}
-                    value={signup.cidade}
-                  />
-                  <Input
-                    label="Estado:"
-                    type="text"
-                    name="estado"
-                    id={styles.inputRegister}
-                    onChange={handleChange}
-                    value={signup.estado}
-                  />
-                </div>
-              </>
-            )}
-          </div>
-
-          {currentStep == 0 ? (
-            <Button
-              onClick={handleNext}
-              variant="secondary"
-              text="Avançar"
-              id={styles.button}
-            />
-          ) : (
-            <div className={styles.buttonContainer}>
-              <Button
-                onClick={handlePrevious}
-                variant="primary"
-                text="Voltar"
-                id={styles.button}
-              />
-              <Button
-                onClick={submitRegister}
-                variant="secondary"
-                text="Enviar"
-                id={styles.button}
-              />
+                  <div className={styles.registerInputContainer}>
+                    <Input
+                      label="Cidade:"
+                      type="text"
+                      name="cidade"
+                      id={styles.inputRegister}
+                      onChange={handleChange}
+                      value={signup.cidade}
+                      className={validationErrors.cidade ? styles.error : ""}
+                    />
+                    <Input
+                      label="Estado:"
+                      type="text"
+                      name="estado"
+                      id={styles.inputRegister}
+                      onChange={handleChange}
+                      value={signup.estado}
+                      className={validationErrors.estado ? styles.error : ""}
+                    />
+                  </div>
+                </>
+              )}
             </div>
-          )}
-          <div className={styles.buttonContainer}></div>
+
+            {currentStep == 0 ? (
+              <Button
+                onClick={handleNext}
+                variant="secondary"
+                text="Avançar"
+                id={styles.button}
+              />
+            ) : (
+              <div className={styles.buttonContainer}>
+                <Button
+                  onClick={handlePrevious}
+                  variant="primary"
+                  text="Voltar"
+                  id={styles.button}
+                />
+                <Button
+                  onClick={submitRegister}
+                  variant="secondary"
+                  text="Enviar"
+                  id={styles.button}
+                />
+              </div>
+            )}
+          </form>
+
+          {error && <p className={styles.errorText}>{error}</p>}
+          {success && <p className={styles.successText}>{success}</p>}
 
           <p className={styles.signupClickText}>
-            Não tem cadastro? Faça já o seu!{" "}
-            <Link className={styles.signupLink} href={"/signUp"}>
+            Já tem cadastro?{" "}
+            <Link className={styles.signupLink} href={"/login"}>
               Clique aqui.
             </Link>
           </p>

@@ -12,7 +12,7 @@ type ButtonProps = {
   const Button: React.FC<ButtonProps> = ({ onClick, variant, text, id}) => {
 
     return (
-      <button onClick= {onClick} id={id} className={variant === "secondary" ?  styles.secondary : styles.primary }>
+      <button type='button' onClick= {onClick} id={id} className={variant === "secondary" ?  styles.secondary : styles.primary }>
         {text}
       </button >
     );

@@ -72,6 +72,16 @@
 
 .errorText {
   color: rgba(255, 0, 0, 0.596);
-  margin: 10px;
+  margin: 5px;
   text-align: center;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.successText {
+  color: green;
+  margin: 5px;
+  text-align: center;
+  max-width: 300px;
+  min-width: 200px;
 }

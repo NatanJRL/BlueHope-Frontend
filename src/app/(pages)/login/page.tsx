@@ -4,6 +4,7 @@ import Input from "@/app/components/Input";
 import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; 
 import styles from "./styles.module.css";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -13,7 +14,14 @@ const Login = () => {
     senha: "",
   });
   const [error, setError] = useState("");
-  const [captcha, setCaptcha] = useState<string | null>();
+  const [success, setSuccess] = useState("");
+  const [captcha, setCaptcha] = useState<string | null>(null);
+  const [validationErrors, setValidationErrors] = useState({
+    email: "",
+    senha: "",
+  });
+
+  const router = useRouter(); 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -23,13 +31,36 @@ const Login = () => {
     }));
   };
 
-  const submitRequest = async () => {
+  const validate = () => {
+    const errors: { email: string; senha: string } = { email: "", senha: "" };
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(login.email)) {
+      errors.email = "Email inválido";
+    }
+
+    if (login.senha.length < 6) {
+      errors.senha = "Senha deve ter no mínimo 6 caracteres";
+    }
+
+    setValidationErrors(errors);
+
+    return !errors.email && !errors.senha;
+  };
+
+  const submitRequest = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validate()) {
+      return;
+    }
+
     if (!captcha) {
       return setError("reCAPTCHA inválido");
     }
 
     try {
-      const url = "https://a1f0-2804-14d-32a7-496f-c44b-f6bd-64a-2cfd.ngrok-free.app/auth/login";
+      const url = "https://204f-2804-14d-32a7-496f-c071-ff3-6c54-fa60.ngrok-free.app/auth/login";
       const response = await axios.post(url, {
         email: login.email,
         senha: login.senha,
@@ -37,13 +68,28 @@ const Login = () => {
       });
 
       console.log(response);
-      
+
+      setSuccess("Login bem-sucedido!");
       setError("");
+
+      setTimeout(() => {
+        router.push("/home");
+      }, 2000);
     } catch (error) {
-      if (axios.isAxiosError(error) && error.response!.status === 401) {
-        setError("Email ou senha incorretos");
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          if (error.response.status === 401) {
+            setError("Email ou senha incorretos");
+          } else {
+            setError(`Erro ao fazer login: ${error.response.statusText}`);
+          }
+        } else if (error.request) {
+          setError("Nenhuma resposta recebida do servidor");
+        } else {
+          setError(`Erro ao configurar a solicitação: ${error.message}`);
+        }
       } else {
-        setError("Ocorreu um erro ao fazer login");
+        setError("Ocorreu um erro desconhecido");
       }
     }
   };
@@ -65,8 +111,11 @@ const Login = () => {
             onChange={handleChange}
             value={login.email}
             isForLogin
-            className={error ? styles.error : ""}
+            className={validationErrors.email ? styles.error : ""}
           />
+          {validationErrors.email && (
+            <p className={styles.errorText}>{validationErrors.email}</p>
+          )}
           <Input
             label="Senha:"
             type="password"
@@ -75,8 +124,11 @@ const Login = () => {
             onChange={handleChange}
             value={login.senha}
             isForLogin
-            className={error ? styles.error : ""}
+            className={validationErrors.senha ? styles.error : ""}
           />
+          {validationErrors.senha && (
+            <p className={styles.errorText}>{validationErrors.senha}</p>
+          )}
         </div>
 
         <ReCAPTCHA
@@ -93,6 +145,7 @@ const Login = () => {
         />
 
         {error && <p className={styles.errorText}>{error}</p>}
+        {success && <p className={styles.successText}>{success}</p>}
 
         <p className={styles.signupClickText}>
           Não tem cadastro? Faça já o seu!{" "}

@@ -11,7 +11,7 @@ type Props = {
   isForLogin?: boolean;
   className?: string;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  pattern?: string;
+  error?: string
 };
 
 const Input: React.FC<Props> = ({
@@ -24,7 +24,6 @@ const Input: React.FC<Props> = ({
   isForLogin = false,
   className = "",
   onBlur,
-  pattern,
 }) => {
   return (
     <>
@@ -39,7 +38,6 @@ const Input: React.FC<Props> = ({
         <input
           onChange={onChange}
           onBlur={onBlur}
-          pattern={pattern}
           className={`${styles.inputStyle} ${className}`}
           placeholder={isForLogin ? "" : label}
           type={type}

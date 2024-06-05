@@ -1,85 +1,104 @@
-.wholeContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: rgb(80,160,191);
-    background: linear-gradient(180deg, rgba(80,160,191,1) 0%, rgba(2,83,115,1) 100%);
+.wholeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(80, 160, 191);
+  background: linear-gradient(
+    180deg,
+    rgba(80, 160, 191, 1) 0%,
+    rgba(2, 83, 115, 1) 100%
+  );
 }
 
-.loginTitleContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #023859;
-
+.loginTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #023859;
 }
 
-#button{
-    width: 100%;
-    margin: 0;
-    max-width: none ;
+#button {
+  width: 100%;
+  margin: 0;
+  max-width: none;
 }
 
-
-.loginTitleContainer h1{
-    font-weight: bolder;
+.loginTitleContainer h1 {
+  font-weight: bolder;
 }
 
-.loginTitleContainer p{
-    font-weight: lighter;
+.loginTitleContainer p {
+  font-weight: lighter;
 }
 
-.inputLoginContainer{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 8vh;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
+.inputLoginContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8vh;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
 }
 
-#inputRegister{
-    width: 80%;
-    align-self: center;
-    min-width: 100px;
-    
+#inputRegister {
+  width: 80%;
+  align-self: center;
+  min-width: 100px;
 }
 
-.signupClickText{
-    margin-top: 1rem;
-    font-weight: lighter;
-    font-size: smaller;
-    color: var(--cor-azul-escuro);
-    width: 75%;
-    text-align: center;
+.signupClickText {
+  margin-top: 1rem;
+  font-weight: lighter;
+  font-size: smaller;
+  color: var(--cor-azul-escuro);
+  width: 75%;
+  text-align: center;
 }
 
-.signupLink{
-    color: var(--cor-azul-escuro);
-    font-weight: lighter;
+.signupLink {
+  color: var(--cor-azul-escuro);
+  font-weight: lighter;
 }
 
+.formLogin {
+  background-color: white;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  column-gap: 20px;
+}
+.registerInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
-.formLogin{
-    background-color: white;
-    padding: 2rem;
-    padding-bottom: 4rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+.error {
+  background-color: rgba(241, 14, 14, 0.37);
 }
-.buttonContainer{
-    display: flex;
-    width: 100%;
-    column-gap: 20px;
+
+.errorText {
+  color: rgba(255, 0, 0, 0.596);
+  margin: 5px;
+  text-align: center;
+  max-width: 300px;
+  min-width: 200px;
 }
-.registerInputContainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+
+.successText {
+  color: green;
+  margin: 5px;
+  text-align: center;
+  max-width: 300px;
+  min-width: 200px;
 }
