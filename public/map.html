@@ -152,12 +152,6 @@
     function on_click(e) {
       let lat = e.latlng.lat;
       let lon = e.latlng.lng;
-      let geocoder = L.Control.Geocoder.nominatim({
-        geocodingQueryParams: {
-          protocol: "https:",
-          acceptLanguage: "en",
-        },
-      });
       /* Limpando */
       const div = document.querySelector(".leaflet-marker-pane");
       const div2 = document.querySelector(".leaflet-shadow-pane");
@@ -165,7 +159,7 @@
       div2.innerHTML = ``;
 
       /* API */
-      const url = `http://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=en&zoom=3`;
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=en&zoom=3`;
       fetch(url)
         .then((res) => {
           if (!res.ok) {
