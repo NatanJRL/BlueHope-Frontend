@@ -73,7 +73,7 @@ const Login = () => {
       setError("");
 
       setTimeout(() => {
-        router.push("/home");
+        router.push("/apiShowcase");
       }, 2000);
     } catch (error) {
       if (axios.isAxiosError(error)) {

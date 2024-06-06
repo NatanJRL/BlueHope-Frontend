@@ -57,12 +57,11 @@ const Home = () => {
       <div className={styles.cardContainer}>
         <Card path="/pin_icon.svg" text="Mapear o Despejo de Plástico" />
 
-        <Card
-          path="/lens_icon.svg"
-          text="Identificar Lixo Marinho em Imagens"
+        <Card 
+          path="/fire_icon.svg" text="Identificar indices de queima de plástico"
         />
 
-        <Card path="/pin_icon.svg" text="Mapear Despejo de Plástico" />
+        <Card path="/lens_icon.svg" text="Prever níveis de poluição da água" />
       </div>
 
       <Footer/>
