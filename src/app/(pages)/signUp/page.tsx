@@ -47,8 +47,7 @@ const SignIn = () => {
     cidade: "",
     estado: "",
   });
-  const router = useRouter(); 
-
+  const router = useRouter();
 
   /* STEPS */
   const handleNext = () => {
@@ -65,6 +64,7 @@ const SignIn = () => {
   const validate = () => {
     const errors: any = {};
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const cepPattern = /d{5}-\d{3}/;
 
     if (!signup.nome.trim()) errors.nome = "Nome é obrigatório";
     if (!emailPattern.test(signup.email)) errors.email = "Email inválido";
@@ -73,7 +73,7 @@ const SignIn = () => {
     if (!signup.phone.trim()) errors.phone = "Telefone é obrigatório";
 
     if (currentStep === 1) {
-      if (!signup.cep.trim()) errors.cep = "CEP é obrigatório";
+      if (!cepPattern.test(signup.cep)) errors.cep = "CEP é obrigatório";
       if (!signup.rua.trim()) errors.rua = "Rua é obrigatória";
       if (!signup.bairro.trim()) errors.bairro = "Bairro é obrigatório";
       if (!signup.numero.trim()) errors.numero = "Número é obrigatório";
@@ -94,10 +94,27 @@ const SignIn = () => {
     }));
   };
 
+  /* FORMATTING AND VALIDATION FOR CEP */
+  const formatCep = (value: string) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/^(\d{5})(\d)/, "$1-$2")
+      .slice(0, 9);
+  };
+
+  const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setSignup((prevSignup) => ({
+      ...prevSignup,
+      [name]: formatCep(value),
+    }));
+  };
+
   /* VIA CEP */
   const handleCepFocus = async (e: React.FocusEvent<HTMLInputElement>) => {
     try {
-      const url = "https://efcc-2804-14d-32a7-496f-7c59-c7b6-43b6-7ced.ngrok-free.app/viacep";
+      const url =
+        "https://efcc-2804-14d-32a7-496f-7c59-c7b6-43b6-7ced.ngrok-free.app/viacep";
       const value = e.target.value;
 
       const response = await axios.post(url, {
@@ -125,7 +142,8 @@ const SignIn = () => {
     if (!validate()) return;
 
     try {
-      const url = "https://efcc-2804-14d-32a7-496f-7c59-c7b6-43b6-7ced.ngrok-free.app/auth/signup";
+      const url =
+        "https://efcc-2804-14d-32a7-496f-7c59-c7b6-43b6-7ced.ngrok-free.app/auth/signup";
       const response = await axios.post(url, {
         nome: signup.nome,
         email: signup.email,
@@ -233,7 +251,7 @@ const SignIn = () => {
                       type="text"
                       name="cep"
                       id={styles.inputRegister}
-                      onChange={handleChange}
+                      onChange={handleCepChange}
                       value={signup.cep}
                       onBlur={handleCepFocus}
                       className={validationErrors.cep ? styles.error : ""}
