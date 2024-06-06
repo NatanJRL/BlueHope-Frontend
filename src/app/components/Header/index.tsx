@@ -62,7 +62,7 @@ const Header: React.FC<Prop> = ({
                             <li>
                                 <Link
                                     className={styles.laterallink}
-                                    href={"*"}>Como usar</Link>
+                                    href={"/login"}>Modelo de IA</Link>
                             </li>
                             <li>
                                 <Link
@@ -82,7 +82,7 @@ const Header: React.FC<Prop> = ({
                             <li>
                                 <Link
                                     className={styles.link}
-                                    href={"*"}>Como usar</Link>
+                                    href={"/login"}>Modelo de IA</Link>
                             </li>
                             <li>
                                 <Link
