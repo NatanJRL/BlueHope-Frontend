@@ -97,7 +97,7 @@ const SignIn = () => {
   /* VIA CEP */
   const handleCepFocus = async (e: React.FocusEvent<HTMLInputElement>) => {
     try {
-      const url = "https://204f-2804-14d-32a7-496f-c071-ff3-6c54-fa60.ngrok-free.app/viacep";
+      const url = "https://ba9c-2804-14d-32a7-496f-d983-5694-bf26-e1ac.ngrok-free.app/viacep";
       const value = e.target.value;
 
       const response = await axios.post(url, {
@@ -125,7 +125,7 @@ const SignIn = () => {
     if (!validate()) return;
 
     try {
-      const url = "https://204f-2804-14d-32a7-496f-c071-ff3-6c54-fa60.ngrok-free.app/auth/signup";
+      const url = "https://ba9c-2804-14d-32a7-496f-d983-5694-bf26-e1ac.ngrok-free.app/auth/signup";
       const response = await axios.post(url, {
         nome: signup.nome,
         email: signup.email,
@@ -144,7 +144,7 @@ const SignIn = () => {
       });
 
       console.log(response.data);
-      setSuccess("Login bem-sucedido!");
+      setSuccess("Cadastro bem-sucedido!");
       setError("");
 
       setTimeout(() => {
