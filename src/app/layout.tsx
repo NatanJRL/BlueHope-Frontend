@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,18 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <head></head>
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-ZDTPW4DMTW"
-      ></Script>
-      <Script id="google-analytics">
-        {` window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-ZDTPW4DMTW');`}
-      </Script>
+      <head>
+        <title>BlueHope</title>
+        <link rel="icon" type="image/x-icon" href="/BlueHope-Logo.ico"></link>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
