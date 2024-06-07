@@ -136,10 +136,7 @@ const SignIn = () => {
   };
 
   /* SUBMIT FORM */
-  const submitRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!validate()) return;
+  const submitRegister = async () => {
 
     try {
       const url =
