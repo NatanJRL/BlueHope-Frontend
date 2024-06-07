@@ -30,7 +30,7 @@
 
 .imageText p{
     text-align: center;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-weight: lighter;
     margin-bottom: 1.3rem;
 }
@@ -59,7 +59,7 @@
 
     .textImage p{
         text-align: center;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         width: 95%;
         margin-bottom: 0px;
         font-size: larger;
