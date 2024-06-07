@@ -84,7 +84,6 @@
 
     .header {
         height: 13vh;
-        height: 13vh;
         background-color: var(--cor-azul-escuro);
         display: flex;
         width: 100%;
@@ -104,7 +103,6 @@
         background-color: transparent;
         position: fixed;
         height: 13vh;
-        /* padding: 1rem; */
         min-height: 120px;
     }
 
