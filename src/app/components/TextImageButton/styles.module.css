@@ -9,13 +9,14 @@
 
 .TextImageButton {
     display: flex;
-    width: 40vw;
+    width: 60vw;
     flex-direction: column;
     color: #032D60;
 }
 
 .TextImageButton h2 {
     font-weight: 800;
+    font-size: larger;
     text-align: center;
 }
 
@@ -53,6 +54,14 @@
 
 #Link {
     text-decoration: none;
+}
+
+@media (min-width: 600px) {
+    
+    .TextImageButton{
+        width: 40vw;
+    }
+
 }
 
 @media(min-width: 992px) {

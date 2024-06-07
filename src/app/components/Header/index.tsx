@@ -67,7 +67,7 @@ const Header: React.FC<Prop> = ({
                             <li>
                                 <Link
                                     className={styles.laterallink}
-                                    href={"*"}>Vídeo</Link>
+                                    href={"/howToUse"}>Como usar</Link>
                             </li>
                             <li>
                                 <Link
@@ -87,7 +87,7 @@ const Header: React.FC<Prop> = ({
                             <li>
                                 <Link
                                     className={styles.link}
-                                    href={"*"}>Vídeo</Link>
+                                    href={"/howToUse"}>Como usar</Link>
                             </li>
                             <li>
                                 <Link
