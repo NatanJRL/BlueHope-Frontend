@@ -60,7 +60,7 @@ const Login = () => {
     }
 
     try {
-      const url = "https://efcc-2804-14d-32a7-496f-7c59-c7b6-43b6-7ced.ngrok-free.app/auth/login";
+      const url = "https://ec17-2804-14d-32a7-496f-b8d7-9160-7cdb-3d59.ngrok-free.app/auth/login";
       const response = await axios.post(url, {
         email: login.email,
         senha: login.senha,

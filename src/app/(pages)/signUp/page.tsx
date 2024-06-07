@@ -114,7 +114,7 @@ const SignIn = () => {
   const handleCepFocus = async (e: React.FocusEvent<HTMLInputElement>) => {
     try {
       const url =
-        "https://efcc-2804-14d-32a7-496f-7c59-c7b6-43b6-7ced.ngrok-free.app/viacep";
+        "https://ec17-2804-14d-32a7-496f-b8d7-9160-7cdb-3d59.ngrok-free.app/viacep";
       const value = e.target.value;
 
       const response = await axios.post(url, {
@@ -143,7 +143,7 @@ const SignIn = () => {
 
     try {
       const url =
-        "https://efcc-2804-14d-32a7-496f-7c59-c7b6-43b6-7ced.ngrok-free.app/auth/signup";
+        "https://ec17-2804-14d-32a7-496f-b8d7-9160-7cdb-3d59.ngrok-free.app/auth/signup";
       const response = await axios.post(url, {
         nome: signup.nome,
         email: signup.email,
