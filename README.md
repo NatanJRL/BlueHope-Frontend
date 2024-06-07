@@ -34,4 +34,4 @@ países de produção de plástico em torno do planeta.
 
 ## Video
 
-LINK DO VIDEO
+LINK DO VIDEO: (https://youtu.be/uIVjxJf8iGk)
